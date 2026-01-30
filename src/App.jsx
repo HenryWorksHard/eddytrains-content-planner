@@ -537,29 +537,39 @@ function App() {
                     </div>
                   </div>
 
-                  {/* Content (placeholder) */}
-                  <div>
-                    <label style={{ 
-                      fontSize: '0.7rem', 
-                      fontWeight: 600, 
-                      color: '#8b949e', 
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.5px',
-                      display: 'block',
-                      marginBottom: 6
-                    }}>Content</label>
-                    <div style={{ 
-                      background: '#0d1117', 
-                      border: '1px dashed #30363d', 
-                      borderRadius: 6,
-                      padding: '2rem',
-                      color: '#8b949e',
-                      fontSize: '0.875rem',
-                      textAlign: 'center'
-                    }}>
-                      Content to be added...
+                  {/* Instagram Embed */}
+                  {template.inspoLink && template.inspoLink.includes('instagram.com/p/') && (
+                    <div>
+                      <label style={{ 
+                        fontSize: '0.7rem', 
+                        fontWeight: 600, 
+                        color: '#8b949e', 
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.5px',
+                        display: 'block',
+                        marginBottom: 6
+                      }}>Source Content</label>
+                      <div style={{ 
+                        background: '#0d1117', 
+                        border: '1px solid #30363d', 
+                        borderRadius: 6,
+                        overflow: 'hidden'
+                      }}>
+                        <iframe 
+                          src={`${template.inspoLink}embed/`}
+                          style={{
+                            width: '100%',
+                            height: 450,
+                            border: 'none',
+                            background: '#0d1117'
+                          }}
+                          allowTransparency="true"
+                          scrolling="no"
+                          frameBorder="0"
+                        />
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
             ))}
