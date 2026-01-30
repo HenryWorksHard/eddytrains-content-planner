@@ -41,6 +41,34 @@ const customerCategories = [
         inspoLink: "https://www.instagram.com/reel/example3",
         hook: "This is what training should feel like",
         bio: "Aspirational identity content"
+      },
+      { 
+        id: 4, 
+        name: "🔥 Better Energy (VIRAL)",
+        inspoLink: "https://www.instagram.com/p/C2dJkNIRDXk/",
+        hook: "Better you attracts better energy",
+        bio: "Personal transformation - show how fitness improves all areas of life"
+      },
+      { 
+        id: 5, 
+        name: "🔥 Best Feeling Ever (339K views)",
+        inspoLink: "https://www.instagram.com/p/DBPPzGDxYyk/",
+        hook: "Best feeling ever",
+        bio: "Short relatable gym moment - humor performs well"
+      },
+      { 
+        id: 6, 
+        name: "🔥 Gym is Therapy (VIRAL)",
+        inspoLink: "https://www.instagram.com/p/DGvNoHNPF82/",
+        hook: "Gym is not just a place where we lift weights… it's a sanctuary",
+        bio: "Deep emotional - gym as escape/therapy"
+      },
+      { 
+        id: 7, 
+        name: "🔥 Mamba Mentality Humor",
+        inspoLink: "https://www.instagram.com/p/DQ4hggegH_Q/",
+        hook: "The most powerful words ever spoken ‼️",
+        bio: "Mamba mentality with humor - relatable and shareable"
       }
     ]
   },
@@ -84,6 +112,20 @@ const customerCategories = [
         inspoLink: "https://www.instagram.com/reel/example6",
         hook: "Most people with shoulder issues skip this warm-up",
         bio: "Highlight overlooked fundamentals"
+      },
+      { 
+        id: 4, 
+        name: "🔥 Mental Health + Gym (VIRAL)",
+        inspoLink: "https://www.instagram.com/p/CzbzQsvI8Ei/",
+        hook: "Depressed? Go hit the gym",
+        bio: "Powerful message - gym as therapy resonates with many"
+      },
+      { 
+        id: 5, 
+        name: "🔥 Highs vs Lows (VIRAL)",
+        inspoLink: "https://www.instagram.com/p/C7cAvq1ie6G/",
+        hook: "The highs definitely outweigh the lows",
+        bio: "Show struggle then triumph - transformation content"
       }
     ]
   },
@@ -127,6 +169,13 @@ const customerCategories = [
         inspoLink: "https://www.instagram.com/reel/example9",
         hook: "Go to exercises for quad growth",
         bio: "Clean demonstration with explanation"
+      },
+      { 
+        id: 4, 
+        name: "🔥 Hybrid Training (VIRAL)",
+        inspoLink: "https://www.instagram.com/p/DSDJhuuCOiZ/",
+        hook: "Simple 🤷‍♀️… Just kidding - but it is possible",
+        bio: "Combine strength AND cardio - show versatility as a coach"
       }
     ]
   },
@@ -195,6 +244,13 @@ const customerCategories = [
     templates: [
       { 
         id: 1, 
+        name: "🔥 START NOW (VIRAL)",
+        inspoLink: "https://www.instagram.com/p/C-20XzoCYGh/",
+        hook: "NOW IS THE BEST TIME TO START 🚀",
+        bio: "Cinematic motivation - urgency CTA for potential clients"
+      },
+      { 
+        id: 2, 
         name: "Spots Open",
         inspoLink: "https://www.instagram.com/reel/example13",
         hook: "Spots open for online coaching — tailored training & weekly check-ins",
@@ -255,13 +311,95 @@ function App() {
   if (selectedCategory) {
     return (
       <div style={{ background: '#0d1117', color: '#c9d1d9', minHeight: '100vh' }}>
+        {/* Sticky Floating Bar */}
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: 56,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '1.5rem',
+          zIndex: 100,
+          pointerEvents: 'none'
+        }}>
+          <a 
+            href="https://henryworkshard.github.io/henry-dashboard/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              width: 44,
+              height: 44,
+              borderRadius: '50%',
+              border: '2px solid #30363d',
+              background: '#21262d',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              textDecoration: 'none',
+              pointerEvents: 'auto'
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b949e" strokeWidth="2">
+              <rect x="3" y="3" width="7" height="7" rx="1"/>
+              <rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/>
+              <rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+          </a>
+          <a 
+            href="https://www.instagram.com/eddytrains" 
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              width: 48,
+              height: 48,
+              borderRadius: '50%',
+              border: '2px solid #238636',
+              background: 'linear-gradient(135deg, #238636, #2ea043)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              textDecoration: 'none',
+              pointerEvents: 'auto'
+            }}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a 
+            href="https://t.me/claborbot" 
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              width: 44,
+              height: 44,
+              borderRadius: '50%',
+              border: '2px solid #30363d',
+              background: '#21262d',
+              overflow: 'hidden',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              pointerEvents: 'auto'
+            }}
+          >
+            <img 
+              src="/henry-avatar.jpg" 
+              alt="Henry"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          </a>
+        </div>
+
         {/* Header */}
         <header style={{ 
           borderBottom: '1px solid #30363d', 
           background: '#161b22',
-          position: 'sticky',
-          top: 0,
-          zIndex: 50
+          paddingTop: 56
         }}>
           <div style={{ maxWidth: 896, margin: '0 auto', padding: '1rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -434,48 +572,118 @@ function App() {
   // Main View
   return (
     <div style={{ background: '#0d1117', color: '#c9d1d9', minHeight: '100vh' }}>
+      {/* Sticky Floating Bar */}
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: 56,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '1.5rem',
+        zIndex: 100,
+        pointerEvents: 'none'
+      }}>
+        <a 
+          href="https://henryworkshard.github.io/henry-dashboard/" 
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            width: 44,
+            height: 44,
+            borderRadius: '50%',
+            border: '2px solid #30363d',
+            background: '#21262d',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            textDecoration: 'none',
+            pointerEvents: 'auto'
+          }}
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b949e" strokeWidth="2">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/>
+          </svg>
+        </a>
+        <a 
+          href="https://www.instagram.com/eddytrains" 
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            width: 48,
+            height: 48,
+            borderRadius: '50%',
+            border: '2px solid #238636',
+            background: 'linear-gradient(135deg, #238636, #2ea043)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            textDecoration: 'none',
+            pointerEvents: 'auto'
+          }}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <a 
+          href="https://t.me/claborbot" 
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            width: 44,
+            height: 44,
+            borderRadius: '50%',
+            border: '2px solid #30363d',
+            background: '#21262d',
+            overflow: 'hidden',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            pointerEvents: 'auto'
+          }}
+        >
+          <img 
+            src="/henry-avatar.jpg" 
+            alt="Henry"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        </a>
+      </div>
+
       {/* Header */}
       <header style={{ 
         borderBottom: '1px solid #30363d', 
         background: '#161b22',
-        position: 'sticky',
-        top: 0,
-        zIndex: 50
+        paddingTop: 56
       }}>
-        <div style={{ maxWidth: 896, margin: '0 auto', padding: '1rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              <div style={{ 
-                width: 40, 
-                height: 40, 
-                borderRadius: 8, 
-                background: 'linear-gradient(135deg, #238636, #2ea043)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: 700,
-                color: '#fff'
-              }}>E</div>
-              <div>
-                <h1 style={{ fontSize: '1.125rem', fontWeight: 600, color: '#f0f6fc' }}>eddytrains</h1>
-                <p style={{ fontSize: '0.75rem', color: '#8b949e' }}>Content Strategy Planner</p>
-              </div>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-              <div style={{ textAlign: 'right' }}>
-                <p style={{ fontSize: '0.65rem', color: '#8b949e' }}>Followers</p>
-                <p style={{ fontSize: '1.25rem', fontWeight: 600, color: '#f0f6fc' }}>152</p>
-              </div>
-              <div style={{ 
-                background: '#238636', 
-                padding: '0.35rem 0.75rem', 
-                borderRadius: 16, 
-                fontSize: '0.7rem', 
-                fontWeight: 500,
-                color: '#fff'
-              }}>Early Stage</div>
+        <div style={{ maxWidth: 896, margin: '0 auto', padding: '1rem', textAlign: 'center' }}>
+          <h1 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#f0f6fc', marginBottom: '0.5rem' }}>eddytrains</h1>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+            <div style={{ 
+              background: '#238636', 
+              padding: '0.35rem 0.75rem', 
+              borderRadius: 16, 
+              fontSize: '0.7rem', 
+              fontWeight: 500,
+              color: '#fff'
+            }}>Early Stage</div>
+            <div style={{ 
+              background: '#21262d', 
+              padding: '0.35rem 0.75rem', 
+              borderRadius: 16, 
+              fontSize: '0.8rem',
+              color: '#8b949e'
+            }}>
+              <strong style={{ color: '#3fb950' }}>152</strong> followers
             </div>
           </div>
+          <p style={{ fontSize: '0.75rem', color: '#8b949e', marginTop: '0.5rem' }}>Content Strategy Planner</p>
         </div>
       </header>
 
@@ -802,3 +1010,4 @@ function App() {
 }
 
 export default App
+// Cache bust 1769784136
