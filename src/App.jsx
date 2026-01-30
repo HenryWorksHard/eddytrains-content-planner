@@ -5,8 +5,7 @@ const customerCategories = [
     id: 1,
     level: 5,
     name: "Unaware",
-    color: "from-purple-500 to-purple-700",
-    icon: "🌑",
+    color: "#8b5cf6",
     summary: "Don't know they need coaching. Hit desire, not solution.",
     fitnessContext: "Difficult to sell directly. Reflect identity or dissatisfaction they haven't articulated yet.",
     contentTypes: [
@@ -26,8 +25,7 @@ const customerCategories = [
     id: 2,
     level: 4,
     name: "Problem Aware",
-    color: "from-blue-500 to-blue-700",
-    icon: "🔍",
+    color: "#3b82f6",
     summary: "Knows something is wrong but not why. Name the problem sharply.",
     fitnessContext: "Make it obvious and relatable. Imply there's a missing piece without explaining everything.",
     contentTypes: [
@@ -47,8 +45,7 @@ const customerCategories = [
     id: 3,
     level: 3,
     name: "Solution Aware",
-    color: "from-teal-500 to-teal-700",
-    icon: "💡",
+    color: "#14b8a6",
     summary: "Knows what they want, not who to trust. Prove the solution works.",
     fitnessContext: "Name the solution category (warm-ups, structure, technique). Show you understand how to apply it.",
     contentTypes: [
@@ -68,8 +65,7 @@ const customerCategories = [
     id: 4,
     level: 2,
     name: "Product Aware",
-    color: "from-orange-500 to-orange-700",
-    icon: "🎯",
+    color: "#f97316",
     summary: "Knows coaching exists, needs reassurance. Show your process.",
     fitnessContext: "Reinforce desire for coaching. Show how your approach is better than generic programs.",
     contentTypes: [
@@ -89,8 +85,7 @@ const customerCategories = [
     id: 5,
     level: 1,
     name: "Most Aware",
-    color: "from-green-500 to-green-700",
-    icon: "✅",
+    color: "#22c55e",
     summary: "Ready to buy, needs a nudge. Be direct. Remove friction.",
     fitnessContext: "Name the offer. Tell them what to do next. Clarity, not education.",
     contentTypes: [
@@ -109,52 +104,89 @@ const customerCategories = [
 ]
 
 const weeklySchedule = [
-  { day: "Monday", awareness: "Problem Aware", type: "Problem identification", example: "Why pain keeps coming back", format: "Reel" },
-  { day: "Tuesday", awareness: "Solution Aware", type: "Prep solution", example: "Warm-up or setup tutorial", format: "Reel" },
-  { day: "Wednesday", awareness: "Unaware", type: "Meme/Identity", example: "Relatable gym humor (HIGH REACH)", format: "Reel" },
-  { day: "Thursday", awareness: "Solution Aware", type: "Execution", example: "Clean lift demo", format: "Reel" },
-  { day: "Friday", awareness: "Unaware", type: "Lifestyle/Story", example: "Training philosophy, POV", format: "Reel/Story" },
-  { day: "Saturday", awareness: "Product Aware", type: "Behind-the-scenes", example: "Programming logic, client work", format: "Carousel/Reel" },
-  { day: "Sunday", awareness: "Most Aware", type: "Soft CTA", example: "How I coach clients", format: "Reel/Story" }
+  { day: "Monday", awareness: "Problem Aware", type: "Problem identification", example: "Why pain keeps coming back", format: "Reel", highReach: false },
+  { day: "Tuesday", awareness: "Solution Aware", type: "Prep solution", example: "Warm-up or setup tutorial", format: "Reel", highReach: false },
+  { day: "Wednesday", awareness: "Unaware", type: "Meme/Identity", example: "Relatable gym humor", format: "Reel", highReach: true },
+  { day: "Thursday", awareness: "Solution Aware", type: "Execution", example: "Clean lift demo", format: "Reel", highReach: false },
+  { day: "Friday", awareness: "Unaware", type: "Lifestyle/Story", example: "Training philosophy, POV", format: "Reel/Story", highReach: false },
+  { day: "Saturday", awareness: "Product Aware", type: "Behind-the-scenes", example: "Programming logic, client work", format: "Carousel/Reel", highReach: false },
+  { day: "Sunday", awareness: "Most Aware", type: "Soft CTA", example: "How I coach clients", format: "Reel/Story", highReach: false }
 ]
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null)
   const [activeTab, setActiveTab] = useState('categories')
 
+  const getColorForAwareness = (name) => {
+    const cat = customerCategories.find(c => c.name === name)
+    return cat?.color || '#6b7280'
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-900 to-black">
+    <div className="min-h-screen" style={{ background: '#0d1117', color: '#c9d1d9' }}>
       {/* Header */}
-      <header className="border-b border-gray-800 bg-black/50 backdrop-blur-sm sticky top-0 z-50 pt-[env(safe-area-inset-top)]">
+      <header style={{ 
+        borderBottom: '1px solid #30363d', 
+        background: '#161b22',
+        position: 'sticky',
+        top: 0,
+        zIndex: 50
+      }}>
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-bold text-white">eddytrains</h1>
-              <p className="text-gray-400 text-sm">Content Strategy Planner</p>
+            <div className="flex items-center gap-3">
+              <div style={{ 
+                width: 40, 
+                height: 40, 
+                borderRadius: 8, 
+                background: 'linear-gradient(135deg, #238636, #2ea043)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 700,
+                color: '#fff'
+              }}>E</div>
+              <div>
+                <h1 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#f0f6fc' }}>eddytrains</h1>
+                <p style={{ fontSize: '0.875rem', color: '#8b949e' }}>Content Strategy Planner</p>
+              </div>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-6">
               <div className="text-right">
-                <p className="text-sm text-gray-400">Current Followers</p>
-                <p className="text-xl font-bold text-white">152</p>
+                <p style={{ fontSize: '0.75rem', color: '#8b949e' }}>Followers</p>
+                <p style={{ fontSize: '1.5rem', fontWeight: 600, color: '#f0f6fc' }}>152</p>
               </div>
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-xl">
-                👟
-              </div>
+              <div style={{ 
+                background: '#238636', 
+                padding: '0.375rem 0.875rem', 
+                borderRadius: 20, 
+                fontSize: '0.75rem', 
+                fontWeight: 500,
+                color: '#fff'
+              }}>Early Stage</div>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Growth Stage Alert */}
+      {/* Growth Alert */}
       <div className="max-w-7xl mx-auto px-4 py-4">
-        <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/30 rounded-xl p-4">
+        <div style={{ 
+          background: 'rgba(35, 134, 54, 0.1)', 
+          border: '1px solid rgba(35, 134, 54, 0.3)', 
+          borderRadius: 8, 
+          padding: '1rem' 
+        }}>
           <div className="flex items-start gap-3">
-            <span className="text-2xl">📈</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3fb950" strokeWidth="2">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+              <polyline points="17 6 23 6 23 12"/>
+            </svg>
             <div>
-              <h3 className="font-semibold text-green-400">Growth Stage: Early</h3>
-              <p className="text-gray-300 text-sm mt-1">
-                At 152 followers, focus on <span className="text-green-400 font-medium">reach over conversion</span>. 
-                Your meme-style reels are performing best — lean into that for awareness while building trust content.
+              <h3 style={{ fontWeight: 600, color: '#3fb950', marginBottom: 4 }}>Growth Strategy</h3>
+              <p style={{ fontSize: '0.875rem', color: '#c9d1d9' }}>
+                At 152 followers, focus on <span style={{ color: '#3fb950', fontWeight: 500 }}>reach over conversion</span>. 
+                Meme-style reels perform best — lean into awareness content while building trust.
               </p>
             </div>
           </div>
@@ -163,24 +195,34 @@ function App() {
 
       {/* Tabs */}
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex gap-2 border-b border-gray-800">
+        <div style={{ borderBottom: '1px solid #30363d', display: 'flex', gap: 8 }}>
           <button
             onClick={() => setActiveTab('categories')}
-            className={`px-6 py-3 font-medium transition-all ${
-              activeTab === 'categories'
-                ? 'text-white border-b-2 border-purple-500'
-                : 'text-gray-400 hover:text-gray-200'
-            }`}
+            style={{
+              padding: '0.75rem 1.5rem',
+              fontWeight: 500,
+              fontSize: '0.875rem',
+              color: activeTab === 'categories' ? '#f0f6fc' : '#8b949e',
+              borderBottom: activeTab === 'categories' ? '2px solid #58a6ff' : '2px solid transparent',
+              background: 'transparent',
+              cursor: 'pointer',
+              transition: 'all 0.2s'
+            }}
           >
             Customer Categories
           </button>
           <button
             onClick={() => setActiveTab('schedule')}
-            className={`px-6 py-3 font-medium transition-all ${
-              activeTab === 'schedule'
-                ? 'text-white border-b-2 border-purple-500'
-                : 'text-gray-400 hover:text-gray-200'
-            }`}
+            style={{
+              padding: '0.75rem 1.5rem',
+              fontWeight: 500,
+              fontSize: '0.875rem',
+              color: activeTab === 'schedule' ? '#f0f6fc' : '#8b949e',
+              borderBottom: activeTab === 'schedule' ? '2px solid #58a6ff' : '2px solid transparent',
+              background: 'transparent',
+              cursor: 'pointer',
+              transition: 'all 0.2s'
+            }}
           >
             Weekly Schedule
           </button>
@@ -192,28 +234,40 @@ function App() {
         {activeTab === 'categories' && (
           <div className="grid lg:grid-cols-3 gap-6">
             {/* Category Cards */}
-            <div className="lg:col-span-1 space-y-4">
-              <h2 className="text-lg font-semibold text-gray-300 mb-4">Awareness Stages</h2>
+            <div className="lg:col-span-1 space-y-3">
+              <h2 style={{ fontSize: '0.875rem', fontWeight: 600, color: '#8b949e', marginBottom: 16 }}>Awareness Stages</h2>
               {customerCategories.map((cat) => (
                 <button
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`w-full text-left p-4 rounded-xl border transition-all ${
-                    selectedCategory?.id === cat.id
-                      ? 'border-purple-500 bg-purple-500/10'
-                      : 'border-gray-700 bg-gray-800/50 hover:border-gray-600'
-                  }`}
+                  style={{
+                    width: '100%',
+                    textAlign: 'left',
+                    padding: '1rem',
+                    borderRadius: 8,
+                    border: selectedCategory?.id === cat.id ? '1px solid #58a6ff' : '1px solid #30363d',
+                    background: selectedCategory?.id === cat.id ? 'rgba(88, 166, 255, 0.1)' : '#161b22',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s'
+                  }}
                 >
                   <div className="flex items-center gap-3">
-                    <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${cat.color} flex items-center justify-center text-lg`}>
-                      {cat.icon}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs text-gray-500">Level {cat.level}</span>
-                      </div>
-                      <h3 className="font-semibold text-white">{cat.name}</h3>
-                      <p className="text-sm text-gray-400 truncate">{cat.summary}</p>
+                    <div style={{ 
+                      width: 8, 
+                      height: 40, 
+                      borderRadius: 4, 
+                      background: cat.color 
+                    }} />
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontSize: '0.75rem', color: '#8b949e', marginBottom: 2 }}>Level {cat.level}</div>
+                      <h3 style={{ fontWeight: 600, color: '#f0f6fc', marginBottom: 2 }}>{cat.name}</h3>
+                      <p style={{ 
+                        fontSize: '0.8rem', 
+                        color: '#8b949e', 
+                        overflow: 'hidden', 
+                        textOverflow: 'ellipsis', 
+                        whiteSpace: 'nowrap' 
+                      }}>{cat.summary}</p>
                     </div>
                   </div>
                 </button>
@@ -223,58 +277,105 @@ function App() {
             {/* Category Detail */}
             <div className="lg:col-span-2">
               {selectedCategory ? (
-                <div className="bg-gray-800/50 rounded-2xl border border-gray-700 overflow-hidden">
-                  <div className={`bg-gradient-to-r ${selectedCategory.color} p-6`}>
-                    <div className="flex items-center gap-4">
-                      <span className="text-4xl">{selectedCategory.icon}</span>
-                      <div>
-                        <p className="text-white/70 text-sm">Level {selectedCategory.level} — Awareness Stage</p>
-                        <h2 className="text-2xl font-bold text-white">{selectedCategory.name}</h2>
-                      </div>
+                <div style={{ background: '#161b22', borderRadius: 8, border: '1px solid #30363d', overflow: 'hidden' }}>
+                  <div style={{ 
+                    background: selectedCategory.color, 
+                    padding: '1.5rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '1rem'
+                  }}>
+                    <div style={{ 
+                      width: 48, 
+                      height: 48, 
+                      borderRadius: 8, 
+                      background: 'rgba(255,255,255,0.2)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontWeight: 700,
+                      color: '#fff',
+                      fontSize: '1.25rem'
+                    }}>
+                      {selectedCategory.level}
+                    </div>
+                    <div>
+                      <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem' }}>Awareness Stage</p>
+                      <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#fff' }}>{selectedCategory.name}</h2>
                     </div>
                   </div>
                   
-                  <div className="p-6 space-y-6">
+                  <div style={{ padding: '1.5rem' }} className="space-y-6">
                     <div>
-                      <h3 className="text-sm font-medium text-gray-400 uppercase tracking-wide mb-2">Summary</h3>
-                      <p className="text-white">{selectedCategory.summary}</p>
-                      <p className="text-gray-400 mt-2">{selectedCategory.fitnessContext}</p>
+                      <h3 style={{ fontSize: '0.75rem', fontWeight: 600, color: '#8b949e', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8 }}>Summary</h3>
+                      <p style={{ color: '#f0f6fc' }}>{selectedCategory.summary}</p>
+                      <p style={{ color: '#8b949e', marginTop: 8 }}>{selectedCategory.fitnessContext}</p>
                     </div>
 
                     <div>
-                      <h3 className="text-sm font-medium text-gray-400 uppercase tracking-wide mb-3">Content Types</h3>
-                      <div className="grid gap-3">
+                      <h3 style={{ fontSize: '0.75rem', fontWeight: 600, color: '#8b949e', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 12 }}>Content Types</h3>
+                      <div className="space-y-2">
                         {selectedCategory.contentTypes.map((ct, i) => (
-                          <div key={i} className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
-                            <h4 className="font-medium text-white">{ct.type}</h4>
-                            <p className="text-sm text-gray-400">{ct.desc}</p>
+                          <div key={i} style={{ 
+                            background: '#0d1117', 
+                            borderRadius: 6, 
+                            padding: '0.875rem', 
+                            border: '1px solid #30363d' 
+                          }}>
+                            <h4 style={{ fontWeight: 500, color: '#f0f6fc', marginBottom: 4 }}>{ct.type}</h4>
+                            <p style={{ fontSize: '0.875rem', color: '#8b949e' }}>{ct.desc}</p>
                           </div>
                         ))}
                       </div>
                     </div>
 
                     <div>
-                      <h3 className="text-sm font-medium text-gray-400 uppercase tracking-wide mb-3">Hook Examples</h3>
+                      <h3 style={{ fontSize: '0.75rem', fontWeight: 600, color: '#8b949e', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 12 }}>Hook Examples</h3>
                       <div className="space-y-2">
                         {selectedCategory.hooks.map((hook, i) => (
-                          <div key={i} className="flex items-start gap-2">
-                            <span className="text-purple-400">→</span>
-                            <p className="text-gray-300 italic">"{hook}"</p>
+                          <div key={i} style={{ 
+                            display: 'flex', 
+                            alignItems: 'flex-start', 
+                            gap: 8,
+                            padding: '0.5rem 0'
+                          }}>
+                            <div style={{ 
+                              width: 6, 
+                              height: 6, 
+                              borderRadius: '50%', 
+                              background: selectedCategory.color,
+                              marginTop: 6,
+                              flexShrink: 0
+                            }} />
+                            <p style={{ color: '#c9d1d9', fontStyle: 'italic' }}>"{hook}"</p>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    <div className="bg-purple-500/10 border border-purple-500/30 rounded-lg p-4">
-                      <h4 className="font-medium text-purple-400 mb-1">Message Approach</h4>
-                      <p className="text-gray-300">{selectedCategory.approach}</p>
+                    <div style={{ 
+                      background: `rgba(${selectedCategory.color === '#22c55e' ? '34,197,94' : selectedCategory.color === '#8b5cf6' ? '139,92,246' : selectedCategory.color === '#3b82f6' ? '59,130,246' : selectedCategory.color === '#14b8a6' ? '20,184,166' : '249,115,22'}, 0.1)`,
+                      border: `1px solid ${selectedCategory.color}33`,
+                      borderRadius: 6,
+                      padding: '1rem'
+                    }}>
+                      <h4 style={{ fontWeight: 600, color: selectedCategory.color, marginBottom: 4 }}>Message Approach</h4>
+                      <p style={{ color: '#c9d1d9' }}>{selectedCategory.approach}</p>
                     </div>
                   </div>
                 </div>
               ) : (
-                <div className="bg-gray-800/30 rounded-2xl border border-gray-700 border-dashed p-12 text-center">
-                  <span className="text-4xl mb-4 block">👈</span>
-                  <p className="text-gray-400">Select a customer category to see content strategies</p>
+                <div style={{ 
+                  background: '#161b22', 
+                  borderRadius: 8, 
+                  border: '1px dashed #30363d', 
+                  padding: '4rem',
+                  textAlign: 'center'
+                }}>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8b949e" strokeWidth="2" style={{ margin: '0 auto 16px' }}>
+                    <polyline points="15 18 9 12 15 6"/>
+                  </svg>
+                  <p style={{ color: '#8b949e' }}>Select a customer category to see content strategies</p>
                 </div>
               )}
             </div>
@@ -283,67 +384,104 @@ function App() {
 
         {activeTab === 'schedule' && (
           <div className="space-y-6">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between flex-wrap gap-4">
               <div>
-                <h2 className="text-xl font-semibold text-white">Weekly Content Schedule</h2>
-                <p className="text-gray-400">Optimized for 150-500 follower growth stage</p>
+                <h2 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#f0f6fc' }}>Weekly Content Schedule</h2>
+                <p style={{ color: '#8b949e' }}>Optimized for 150-500 follower growth stage</p>
               </div>
-              <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg px-4 py-2">
-                <span className="text-yellow-400 font-medium">🔥 Meme content = highest reach</span>
+              <div style={{ 
+                background: 'rgba(210, 153, 34, 0.1)', 
+                border: '1px solid rgba(210, 153, 34, 0.3)', 
+                borderRadius: 6, 
+                padding: '0.5rem 1rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8
+              }}>
+                <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#d29922' }} />
+                <span style={{ color: '#d29922', fontWeight: 500, fontSize: '0.875rem' }}>Meme content = highest reach</span>
               </div>
             </div>
 
-            <div className="grid gap-4">
-              {weeklySchedule.map((day, i) => {
-                const cat = customerCategories.find(c => c.name === day.awareness)
-                const isHighReach = day.example.includes('HIGH REACH')
-                return (
-                  <div 
-                    key={i} 
-                    className={`bg-gray-800/50 rounded-xl border p-5 ${
-                      isHighReach ? 'border-yellow-500/50' : 'border-gray-700'
-                    }`}
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="w-24">
-                        <p className="text-lg font-bold text-white">{day.day}</p>
-                        <span className="text-xs text-gray-500">{day.format}</span>
-                      </div>
-                      <div className={`w-1 h-12 rounded-full bg-gradient-to-b ${cat?.color || 'from-gray-500 to-gray-700'}`} />
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className={`px-2 py-0.5 rounded text-xs font-medium ${
-                            cat?.color ? `bg-gradient-to-r ${cat.color} text-white` : 'bg-gray-700 text-gray-300'
-                          }`}>
-                            {day.awareness}
+            <div className="space-y-3">
+              {weeklySchedule.map((day, i) => (
+                <div 
+                  key={i} 
+                  style={{ 
+                    background: '#161b22', 
+                    borderRadius: 8, 
+                    border: day.highReach ? '1px solid rgba(210, 153, 34, 0.5)' : '1px solid #30363d',
+                    padding: '1.25rem'
+                  }}
+                >
+                  <div className="flex items-center gap-4">
+                    <div style={{ width: 80 }}>
+                      <p style={{ fontSize: '1rem', fontWeight: 600, color: '#f0f6fc' }}>{day.day}</p>
+                      <span style={{ fontSize: '0.75rem', color: '#8b949e' }}>{day.format}</span>
+                    </div>
+                    <div style={{ 
+                      width: 4, 
+                      height: 40, 
+                      borderRadius: 2, 
+                      background: getColorForAwareness(day.awareness) 
+                    }} />
+                    <div style={{ flex: 1 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+                        <span style={{ 
+                          padding: '0.25rem 0.625rem', 
+                          borderRadius: 4, 
+                          fontSize: '0.75rem', 
+                          fontWeight: 500,
+                          background: getColorForAwareness(day.awareness),
+                          color: '#fff'
+                        }}>
+                          {day.awareness}
+                        </span>
+                        {day.highReach && (
+                          <span style={{ 
+                            padding: '0.25rem 0.625rem', 
+                            borderRadius: 4, 
+                            fontSize: '0.75rem', 
+                            fontWeight: 500,
+                            background: 'rgba(210, 153, 34, 0.2)',
+                            color: '#d29922'
+                          }}>
+                            High Reach
                           </span>
-                          {isHighReach && (
-                            <span className="px-2 py-0.5 rounded text-xs font-medium bg-yellow-500/20 text-yellow-400">
-                              🔥 High Reach
-                            </span>
-                          )}
-                        </div>
-                        <p className="font-medium text-white">{day.type}</p>
-                        <p className="text-sm text-gray-400">{day.example.replace(' (HIGH REACH)', '')}</p>
+                        )}
                       </div>
+                      <p style={{ fontWeight: 500, color: '#f0f6fc' }}>{day.type}</p>
+                      <p style={{ fontSize: '0.875rem', color: '#8b949e' }}>{day.example}</p>
                     </div>
                   </div>
-                )
-              })}
+                </div>
+              ))}
             </div>
 
-            <div className="bg-gray-800/50 rounded-xl border border-gray-700 p-6">
-              <h3 className="font-semibold text-white mb-4">📊 Strategy Notes for 152 Followers</h3>
-              <div className="grid md:grid-cols-2 gap-4 text-sm">
+            <div style={{ background: '#161b22', borderRadius: 8, border: '1px solid #30363d', padding: '1.5rem' }}>
+              <h3 style={{ fontWeight: 600, color: '#f0f6fc', marginBottom: 16 }}>Strategy Notes</h3>
+              <div className="grid md:grid-cols-2 gap-4" style={{ fontSize: '0.875rem' }}>
                 <div className="space-y-2">
-                  <p className="text-gray-300"><span className="text-green-400">✓</span> Post 5-7 reels per week minimum</p>
-                  <p className="text-gray-300"><span className="text-green-400">✓</span> Meme/relatable content 2x per week for reach</p>
-                  <p className="text-gray-300"><span className="text-green-400">✓</span> Educational content builds trust over time</p>
+                  <p style={{ color: '#c9d1d9', display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span style={{ color: '#3fb950' }}>✓</span> Post 5-7 reels per week minimum
+                  </p>
+                  <p style={{ color: '#c9d1d9', display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span style={{ color: '#3fb950' }}>✓</span> Meme/relatable content 2x per week for reach
+                  </p>
+                  <p style={{ color: '#c9d1d9', display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span style={{ color: '#3fb950' }}>✓</span> Educational content builds trust over time
+                  </p>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-gray-300"><span className="text-green-400">✓</span> Soft CTAs only — don't hard sell yet</p>
-                  <p className="text-gray-300"><span className="text-green-400">✓</span> Stories daily to stay top of mind</p>
-                  <p className="text-gray-300"><span className="text-green-400">✓</span> Engage in comments for 15 min after posting</p>
+                  <p style={{ color: '#c9d1d9', display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span style={{ color: '#3fb950' }}>✓</span> Soft CTAs only — don't hard sell yet
+                  </p>
+                  <p style={{ color: '#c9d1d9', display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span style={{ color: '#3fb950' }}>✓</span> Stories daily to stay top of mind
+                  </p>
+                  <p style={{ color: '#c9d1d9', display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span style={{ color: '#3fb950' }}>✓</span> Engage in comments for 15 min after posting
+                  </p>
                 </div>
               </div>
             </div>
@@ -351,12 +489,12 @@ function App() {
         )}
       </main>
 
-      {/* Brand Truth Footer */}
-      <footer className="border-t border-gray-800 mt-12">
+      {/* Footer */}
+      <footer style={{ borderTop: '1px solid #30363d', marginTop: 48 }}>
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="text-center">
-            <p className="text-gray-500 text-sm mb-2">Brand Truth</p>
-            <p className="text-gray-300 italic">"This brand exists to help people train with confidence, consistency, and longevity."</p>
+            <p style={{ fontSize: '0.75rem', color: '#8b949e', marginBottom: 8 }}>Brand Truth</p>
+            <p style={{ color: '#c9d1d9', fontStyle: 'italic' }}>"This brand exists to help people train with confidence, consistency, and longevity."</p>
           </div>
         </div>
       </footer>
