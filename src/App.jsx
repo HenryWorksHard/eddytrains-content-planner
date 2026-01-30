@@ -125,7 +125,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-900 to-black">
       {/* Header */}
-      <header className="border-b border-gray-800 bg-black/50 backdrop-blur-sm sticky top-0 z-50">
+      <header className="border-b border-gray-800 bg-black/50 backdrop-blur-sm sticky top-0 z-50 pt-[env(safe-area-inset-top)]">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div>
