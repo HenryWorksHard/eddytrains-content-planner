@@ -219,13 +219,13 @@ const customerCategories = [
 ]
 
 const weeklySchedule = [
-  { day: "Monday", awareness: "Problem Aware", type: "Problem identification", example: "Why pain keeps coming back", format: "Reel", highReach: false },
-  { day: "Tuesday", awareness: "Solution Aware", type: "Prep solution", example: "Warm-up or setup tutorial", format: "Reel", highReach: false },
-  { day: "Wednesday", awareness: "Unaware", type: "Meme/Identity", example: "Relatable gym humor", format: "Reel", highReach: true },
-  { day: "Thursday", awareness: "Solution Aware", type: "Execution", example: "Clean lift demo", format: "Reel", highReach: false },
-  { day: "Friday", awareness: "Unaware", type: "Lifestyle/Story", example: "Training philosophy, POV", format: "Reel/Story", highReach: false },
-  { day: "Saturday", awareness: "Product Aware", type: "Behind-the-scenes", example: "Programming logic, client work", format: "Carousel/Reel", highReach: false },
-  { day: "Sunday", awareness: "Most Aware", type: "Soft CTA", example: "How I coach clients", format: "Reel/Story", highReach: false }
+  { day: "Monday", awareness: "Unaware", type: "Meme/Relatable", example: "Gym humor that hits home", format: "Reel", highReach: true },
+  { day: "Tuesday", awareness: "Problem Aware", type: "Pain point", example: "Why your progress stalled", format: "Reel", highReach: false },
+  { day: "Wednesday", awareness: "Unaware", type: "POV/Identity", example: "POV: finally training with purpose", format: "Reel", highReach: true },
+  { day: "Thursday", awareness: "Solution Aware", type: "Quick tip", example: "One exercise you're doing wrong", format: "Reel", highReach: false },
+  { day: "Friday", awareness: "Unaware", type: "Lifestyle", example: "Day in the life / gym moments", format: "Reel", highReach: true },
+  { day: "Saturday", awareness: "Problem Aware", type: "Myth busting", example: "Stop believing this about training", format: "Reel", highReach: false },
+  { day: "Sunday", awareness: "Unaware", type: "Relatable story", example: "Sunday gym culture / recovery vibes", format: "Reel/Story", highReach: true }
 ]
 
 function App() {
@@ -760,15 +760,20 @@ function App() {
             </div>
 
             <div style={{ background: '#161b22', borderRadius: 8, border: '1px solid #30363d', padding: '1rem', marginTop: 16 }}>
-              <h3 style={{ fontWeight: 600, color: '#f0f6fc', marginBottom: 12, fontSize: '0.9rem' }}>Strategy Notes</h3>
+              <h3 style={{ fontWeight: 600, color: '#f0f6fc', marginBottom: 12, fontSize: '0.9rem' }}>Growth Mode Strategy (Under 500 Followers)</h3>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, fontSize: '0.8rem' }}>
-                <p style={{ color: '#c9d1d9' }}><span style={{ color: '#3fb950' }}>✓</span> Post 5-7 reels/week</p>
-                <p style={{ color: '#c9d1d9' }}><span style={{ color: '#3fb950' }}>✓</span> Soft CTAs only</p>
-                <p style={{ color: '#c9d1d9' }}><span style={{ color: '#3fb950' }}>✓</span> Meme content 2x/week</p>
-                <p style={{ color: '#c9d1d9' }}><span style={{ color: '#3fb950' }}>✓</span> Stories daily</p>
-                <p style={{ color: '#c9d1d9' }}><span style={{ color: '#3fb950' }}>✓</span> Educational = trust</p>
-                <p style={{ color: '#c9d1d9' }}><span style={{ color: '#3fb950' }}>✓</span> Engage 15min after</p>
+                <p style={{ color: '#c9d1d9' }}><span style={{ color: '#3fb950' }}>✓</span> 4x meme/relatable reels</p>
+                <p style={{ color: '#c9d1d9' }}><span style={{ color: '#3fb950' }}>✓</span> Zero CTA content</p>
+                <p style={{ color: '#c9d1d9' }}><span style={{ color: '#3fb950' }}>✓</span> Reach over conversion</p>
+                <p style={{ color: '#c9d1d9' }}><span style={{ color: '#3fb950' }}>✓</span> Stories 3-5x daily</p>
+                <p style={{ color: '#c9d1d9' }}><span style={{ color: '#3fb950' }}>✓</span> Comment on 20 posts/day</p>
+                <p style={{ color: '#c9d1d9' }}><span style={{ color: '#3fb950' }}>✓</span> Engage 15min after post</p>
               </div>
+            </div>
+            
+            <div style={{ background: 'rgba(248, 81, 73, 0.1)', border: '1px solid rgba(248, 81, 73, 0.3)', borderRadius: 8, padding: '1rem', marginTop: 12 }}>
+              <p style={{ fontSize: '0.8rem', color: '#f85149', fontWeight: 500, marginBottom: 4 }}>Do NOT post yet:</p>
+              <p style={{ fontSize: '0.75rem', color: '#c9d1d9' }}>Product Aware or Most Aware content (coaching offers, CTAs). Save these until you hit 500+ followers.</p>
             </div>
           </div>
         )}
