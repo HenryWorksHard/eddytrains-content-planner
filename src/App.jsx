@@ -705,58 +705,69 @@ function App() {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              {weeklySchedule.map((day, i) => (
-                <div 
-                  key={i} 
-                  style={{ 
-                    background: '#161b22', 
-                    borderRadius: 8, 
-                    border: day.highReach ? '1px solid rgba(210, 153, 34, 0.5)' : '1px solid #30363d',
-                    padding: '1rem'
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                    <div style={{ width: 70 }}>
-                      <p style={{ fontSize: '0.9rem', fontWeight: 600, color: '#f0f6fc' }}>{day.day}</p>
-                      <span style={{ fontSize: '0.7rem', color: '#8b949e' }}>{day.format}</span>
-                    </div>
-                    <div style={{ 
-                      width: 3, 
-                      height: 36, 
-                      borderRadius: 2, 
-                      background: getColorForAwareness(day.awareness) 
-                    }} />
-                    <div style={{ flex: 1 }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
-                        <span style={{ 
-                          padding: '0.2rem 0.5rem', 
-                          borderRadius: 4, 
-                          fontSize: '0.7rem', 
-                          fontWeight: 500,
-                          background: getColorForAwareness(day.awareness),
-                          color: '#fff'
-                        }}>
-                          {day.awareness}
-                        </span>
-                        {day.highReach && (
+              {weeklySchedule.map((day, i) => {
+                const category = customerCategories.find(c => c.name === day.awareness);
+                return (
+                  <div 
+                    key={i} 
+                    onClick={() => category && openTemplates(category)}
+                    style={{ 
+                      background: '#161b22', 
+                      borderRadius: 8, 
+                      border: day.highReach ? '1px solid rgba(210, 153, 34, 0.5)' : '1px solid #30363d',
+                      padding: '1rem',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s'
+                    }}
+                    onMouseOver={(e) => e.currentTarget.style.background = '#21262d'}
+                    onMouseOut={(e) => e.currentTarget.style.background = '#161b22'}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                      <div style={{ width: 70 }}>
+                        <p style={{ fontSize: '0.9rem', fontWeight: 600, color: '#f0f6fc' }}>{day.day}</p>
+                        <span style={{ fontSize: '0.7rem', color: '#8b949e' }}>{day.format}</span>
+                      </div>
+                      <div style={{ 
+                        width: 3, 
+                        height: 36, 
+                        borderRadius: 2, 
+                        background: getColorForAwareness(day.awareness) 
+                      }} />
+                      <div style={{ flex: 1 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
                           <span style={{ 
                             padding: '0.2rem 0.5rem', 
                             borderRadius: 4, 
                             fontSize: '0.7rem', 
                             fontWeight: 500,
-                            background: 'rgba(210, 153, 34, 0.2)',
-                            color: '#d29922'
+                            background: getColorForAwareness(day.awareness),
+                            color: '#fff'
                           }}>
-                            High Reach
+                            {day.awareness}
                           </span>
-                        )}
+                          {day.highReach && (
+                            <span style={{ 
+                              padding: '0.2rem 0.5rem', 
+                              borderRadius: 4, 
+                              fontSize: '0.7rem', 
+                              fontWeight: 500,
+                              background: 'rgba(210, 153, 34, 0.2)',
+                              color: '#d29922'
+                            }}>
+                              High Reach
+                            </span>
+                          )}
+                        </div>
+                        <p style={{ fontWeight: 500, color: '#f0f6fc', fontSize: '0.875rem' }}>{day.type}</p>
+                        <p style={{ fontSize: '0.8rem', color: '#8b949e' }}>{day.example}</p>
                       </div>
-                      <p style={{ fontWeight: 500, color: '#f0f6fc', fontSize: '0.875rem' }}>{day.type}</p>
-                      <p style={{ fontSize: '0.8rem', color: '#8b949e' }}>{day.example}</p>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b949e" strokeWidth="2" style={{ flexShrink: 0 }}>
+                        <polyline points="9 18 15 12 9 6"/>
+                      </svg>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             <div style={{ background: '#161b22', borderRadius: 8, border: '1px solid #30363d', padding: '1rem', marginTop: 16 }}>
