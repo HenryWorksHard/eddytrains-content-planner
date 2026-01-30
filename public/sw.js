@@ -1,5 +1,5 @@
 // Version - update this to force cache refresh
-const VERSION = 'v1.0.0';
+const VERSION = 'v1.0.1';
 const CACHE_NAME = `content-planner-${VERSION}`;
 
 // Install - skip waiting immediately
