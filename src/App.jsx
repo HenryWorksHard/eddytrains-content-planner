@@ -23,48 +23,27 @@ const customerCategories = [
     templates: [
       { 
         id: 1, 
-        name: "Relatable Gym Meme",
-        inspoLink: "https://www.instagram.com/reel/example1",
-        hook: "Why are you always training arms",
-        bio: "For the casual gym-goer who knows they do this"
-      },
-      { 
-        id: 2, 
-        name: "POV Training Moment",
-        inspoLink: "https://www.instagram.com/reel/example2",
-        hook: "POV: You finally stopped guessing in the gym",
-        bio: "Show the feeling of purposeful training"
-      },
-      { 
-        id: 3, 
-        name: "Identity Story",
-        inspoLink: "https://www.instagram.com/reel/example3",
-        hook: "This is what training should feel like",
-        bio: "Aspirational identity content"
-      },
-      { 
-        id: 4, 
         name: "🔥 Better Energy (VIRAL)",
         inspoLink: "https://www.instagram.com/p/C2dJkNIRDXk/",
         hook: "Better you attracts better energy",
         bio: "Personal transformation - show how fitness improves all areas of life"
       },
       { 
-        id: 5, 
+        id: 2, 
         name: "🔥 Best Feeling Ever (339K views)",
         inspoLink: "https://www.instagram.com/p/DBPPzGDxYyk/",
         hook: "Best feeling ever",
         bio: "Short relatable gym moment - humor performs well"
       },
       { 
-        id: 6, 
+        id: 3, 
         name: "🔥 Gym is Therapy (VIRAL)",
         inspoLink: "https://www.instagram.com/p/DGvNoHNPF82/",
         hook: "Gym is not just a place where we lift weights… it's a sanctuary",
         bio: "Deep emotional - gym as escape/therapy"
       },
       { 
-        id: 7, 
+        id: 4, 
         name: "🔥 Mamba Mentality Humor",
         inspoLink: "https://www.instagram.com/p/DQ4hggegH_Q/",
         hook: "The most powerful words ever spoken ‼️",
@@ -94,34 +73,13 @@ const customerCategories = [
     templates: [
       { 
         id: 1, 
-        name: "Pain Point Call-Out",
-        inspoLink: "https://www.instagram.com/reel/example4",
-        hook: "This is why your shoulder pain keeps coming back",
-        bio: "Name the problem they feel but can't explain"
-      },
-      { 
-        id: 2, 
-        name: "Training Inconsistency",
-        inspoLink: "https://www.instagram.com/reel/example5",
-        hook: "You're not inconsistent — your training is",
-        bio: "Reframe blame from person to system"
-      },
-      { 
-        id: 3, 
-        name: "Common Mistake",
-        inspoLink: "https://www.instagram.com/reel/example6",
-        hook: "Most people with shoulder issues skip this warm-up",
-        bio: "Highlight overlooked fundamentals"
-      },
-      { 
-        id: 4, 
         name: "🔥 Mental Health + Gym (VIRAL)",
         inspoLink: "https://www.instagram.com/p/CzbzQsvI8Ei/",
         hook: "Depressed? Go hit the gym",
         bio: "Powerful message - gym as therapy resonates with many"
       },
       { 
-        id: 5, 
+        id: 2, 
         name: "🔥 Highs vs Lows (VIRAL)",
         inspoLink: "https://www.instagram.com/p/C7cAvq1ie6G/",
         hook: "The highs definitely outweigh the lows",
@@ -151,27 +109,6 @@ const customerCategories = [
     templates: [
       { 
         id: 1, 
-        name: "Warm-Up Tutorial",
-        inspoLink: "https://www.instagram.com/reel/example7",
-        hook: "This warm-up matters more than your top set",
-        bio: "Educational content with clear reasoning"
-      },
-      { 
-        id: 2, 
-        name: "Exercise Essentials",
-        inspoLink: "https://www.instagram.com/reel/example8",
-        hook: "Stop wasting your time in the gym if you can't do these 5 exercises",
-        bio: "List format with authority"
-      },
-      { 
-        id: 3, 
-        name: "Movement Demo",
-        inspoLink: "https://www.instagram.com/reel/example9",
-        hook: "Go to exercises for quad growth",
-        bio: "Clean demonstration with explanation"
-      },
-      { 
-        id: 4, 
         name: "🔥 Hybrid Training (VIRAL)",
         inspoLink: "https://www.instagram.com/p/DSDJhuuCOiZ/",
         hook: "Simple 🤷‍♀️… Just kidding - but it is possible",
@@ -198,29 +135,7 @@ const customerCategories = [
       "This is how I adjust a program mid-week."
     ],
     approach: "Differentiation, proof, process. Introduce structure and accountability.",
-    templates: [
-      { 
-        id: 1, 
-        name: "Programming Logic",
-        inspoLink: "https://www.instagram.com/reel/example10",
-        hook: "This is how I program around shoulder pain",
-        bio: "Show your thinking and methodology"
-      },
-      { 
-        id: 2, 
-        name: "Client Check-In",
-        inspoLink: "https://www.instagram.com/reel/example11",
-        hook: "This is how I adjust a program mid-week",
-        bio: "Behind-the-scenes of real coaching"
-      },
-      { 
-        id: 3, 
-        name: "Process Breakdown",
-        inspoLink: "https://www.instagram.com/reel/example12",
-        hook: "This is why we do this before loading",
-        bio: "Explain the why behind your methods"
-      }
-    ]
+    templates: []
   },
   {
     id: 5,
@@ -248,27 +163,6 @@ const customerCategories = [
         inspoLink: "https://www.instagram.com/p/C-20XzoCYGh/",
         hook: "NOW IS THE BEST TIME TO START 🚀",
         bio: "Cinematic motivation - urgency CTA for potential clients"
-      },
-      { 
-        id: 2, 
-        name: "Spots Open",
-        inspoLink: "https://www.instagram.com/reel/example13",
-        hook: "Spots open for online coaching — tailored training & weekly check-ins",
-        bio: "Direct offer with clear value"
-      },
-      { 
-        id: 2, 
-        name: "Simple CTA",
-        inspoLink: "https://www.instagram.com/reel/example14",
-        hook: "DM 'COACH' to get started",
-        bio: "Minimal friction call-to-action"
-      },
-      { 
-        id: 3, 
-        name: "Urgency Nudge",
-        inspoLink: "https://www.instagram.com/reel/example15",
-        hook: "If this sounds familiar, it's worth acting now",
-        bio: "Subtle urgency without pressure"
       }
     ]
   }
@@ -388,7 +282,7 @@ function App() {
             }}
           >
             <img 
-              src="/henry-avatar.jpg" 
+              src={`${import.meta.env.BASE_URL}henry-avatar.jpg`}
               alt="Henry"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
@@ -441,7 +335,20 @@ function App() {
           </div>
 
           {/* Templates */}
-          <h2 style={{ fontSize: '0.875rem', fontWeight: 600, color: '#8b949e', marginBottom: 12 }}>Templates</h2>
+          <h2 style={{ fontSize: '0.875rem', fontWeight: 600, color: '#8b949e', marginBottom: 12 }}>Scalped Content</h2>
+          {selectedCategory.templates.length === 0 ? (
+            <div style={{
+              background: '#161b22',
+              border: '1px dashed #30363d',
+              borderRadius: 8,
+              padding: '2rem',
+              textAlign: 'center',
+              color: '#8b949e'
+            }}>
+              <p style={{ marginBottom: 8 }}>No content scalped yet for this awareness level</p>
+              <p style={{ fontSize: '0.8rem' }}>Find viral reels that fit this category and send them to Henry to add</p>
+            </div>
+          ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             {selectedCategory.templates.map((template) => (
               <div 
@@ -574,6 +481,7 @@ function App() {
               </div>
             ))}
           </div>
+          )}
         </div>
       </div>
     )
@@ -659,7 +567,7 @@ function App() {
           }}
         >
           <img 
-            src="/henry-avatar.jpg" 
+            src={`${import.meta.env.BASE_URL}henry-avatar.jpg`}
             alt="Henry"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
