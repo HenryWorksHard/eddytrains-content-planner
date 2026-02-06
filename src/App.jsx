@@ -178,6 +178,17 @@ const weeklySchedule = [
   { day: "Sunday", awareness: "Unaware", type: "Relatable story", example: "Sunday gym culture / recovery vibes", format: "Reel/Story", highReach: true }
 ]
 
+// Best posting times based on follower activity analytics (updated Feb 2026)
+const bestPostTimes = [
+  { day: "Monday", bestTime: "12pm", activity: 101, secondBest: "9pm", secondActivity: 97 },
+  { day: "Tuesday", bestTime: "12pm", activity: 85, secondBest: "9pm", secondActivity: 81 },
+  { day: "Wednesday", bestTime: "12pm", activity: 72, secondBest: "9pm", secondActivity: 70 },
+  { day: "Thursday", bestTime: "6pm", activity: 75, secondBest: "9pm", secondActivity: 75 },
+  { day: "Friday", bestTime: "3pm", activity: 92, secondBest: "9pm", secondActivity: 90 },
+  { day: "Saturday", bestTime: "3pm", activity: 94, secondBest: "9pm", secondActivity: 92 },
+  { day: "Sunday", bestTime: "3pm", activity: 95, secondBest: "12pm", secondActivity: 92 }
+]
+
 function App() {
   const [activeTab, setActiveTab] = useState('categories')
   const [expandedId, setExpandedId] = useState(null)
@@ -811,6 +822,87 @@ function App() {
 
         {activeTab === 'schedule' && (
           <div>
+            {/* Best Post Times Section */}
+            <div style={{ marginBottom: 24 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#58a6ff" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <h2 style={{ fontSize: '1rem', fontWeight: 600, color: '#f0f6fc' }}>Best Times to Post</h2>
+              </div>
+              <p style={{ color: '#8b949e', fontSize: '0.8rem', marginBottom: 12 }}>Based on when your followers are most active (analytics from last 30 days)</p>
+              
+              <div style={{ 
+                background: '#161b22', 
+                border: '1px solid #30363d', 
+                borderRadius: 8, 
+                overflow: 'hidden'
+              }}>
+                {bestPostTimes.map((item, i) => (
+                  <div 
+                    key={i}
+                    style={{ 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      padding: '0.75rem 1rem',
+                      borderBottom: i < bestPostTimes.length - 1 ? '1px solid #30363d' : 'none',
+                      gap: 12
+                    }}
+                  >
+                    <div style={{ width: 80, fontWeight: 500, color: '#f0f6fc', fontSize: '0.875rem' }}>
+                      {item.day}
+                    </div>
+                    <div style={{ 
+                      background: '#238636', 
+                      padding: '0.25rem 0.6rem', 
+                      borderRadius: 4, 
+                      fontSize: '0.8rem',
+                      fontWeight: 600,
+                      color: '#fff',
+                      minWidth: 50,
+                      textAlign: 'center'
+                    }}>
+                      {item.bestTime}
+                    </div>
+                    <div style={{ 
+                      background: '#0d1117', 
+                      padding: '0.2rem 0.5rem', 
+                      borderRadius: 4, 
+                      fontSize: '0.7rem',
+                      color: '#3fb950'
+                    }}>
+                      {item.activity} active
+                    </div>
+                    <div style={{ color: '#8b949e', fontSize: '0.75rem', marginLeft: 'auto' }}>
+                      Alt: <span style={{ color: '#c9d1d9' }}>{item.secondBest}</span> ({item.secondActivity})
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <div style={{ 
+                background: 'rgba(88, 166, 255, 0.1)', 
+                border: '1px solid rgba(88, 166, 255, 0.3)', 
+                borderRadius: 6, 
+                padding: '0.75rem',
+                marginTop: 12,
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: 10
+              }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#58a6ff" strokeWidth="2" style={{ flexShrink: 0, marginTop: 2 }}>
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="16" x2="12" y2="12"/>
+                  <line x1="12" y1="8" x2="12.01" y2="8"/>
+                </svg>
+                <div style={{ fontSize: '0.8rem', color: '#c9d1d9' }}>
+                  <strong style={{ color: '#58a6ff' }}>Pattern:</strong> Weekdays perform best at <strong>12pm</strong> (lunch break), 
+                  weekends peak at <strong>3pm</strong>. Evenings (9pm) are consistently strong across all days.
+                </div>
+              </div>
+            </div>
+
             <div style={{ marginBottom: 16 }}>
               <h2 style={{ fontSize: '1rem', fontWeight: 600, color: '#f0f6fc', marginBottom: 4 }}>Weekly Content Schedule</h2>
               <p style={{ color: '#8b949e', fontSize: '0.8rem' }}>Optimized for 150-500 follower growth stage</p>
